@@ -8,7 +8,7 @@ A chess engine in under 4 KiB: negamax with alpha-beta and PVS,
 quiescence search, a transposition table, null-move pruning, LMR and
 MVV-LVA ordering. Fully deterministic — a fixed 70,000-node budget per
 move, Zobrist seed 42, no wall clock. It plays through the make.fun
-env (`POST /game`, `/move`, `/resign`).
+env (`POST /game`, `/move`).
 
 Run it with:
 
