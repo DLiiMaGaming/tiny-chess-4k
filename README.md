@@ -4,11 +4,20 @@
 
 # Tiny Chess 4K
 
-A chess engine in under 4 KiB: negamax with alpha-beta and PVS,
-quiescence search, a transposition table, null-move pruning, LMR and
-MVV-LVA ordering. Fully deterministic — a fixed 70,000-node budget per
-move, Zobrist seed 42, no wall clock. It plays through the make.fun
-env (`POST /game`, `/move`).
+An original chess engine in under 4 KB of Python: negamax alpha-beta search with
+quiescence (captures, promotions and check evasions), check extensions, a Zobrist
+transposition table, aggressive late-move reductions with full re-search, killer
+move ordering, MVV-LVA captures, and repetition-aware search (in-search and
+game-history), over material plus piece-square-table evaluation, driven by a
+fixed 60,000-node budget per move (6 s guard) so every move is deterministic.
+Built for the make.fun
+[tiny-chess-01](https://make.fun/bounty/tiny-chess-01) bounty: the strongest
+chess engine that fits in 4,096 bytes of Python.
+
+`main.py` is the whole engine (3,869 bytes). It talks to the competition env
+over HTTP and plays the house gauntlet one game after another. Local
+gauntlet (practice trial-0 + trial-1, 12 games): 6.5/12, Elo 1,321 — wins
+against depth-2/3/4 and nodes-100k. MIT licensed.
 
 Run it with:
 
